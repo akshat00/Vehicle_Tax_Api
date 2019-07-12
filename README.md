@@ -63,3 +63,25 @@ print('Tax Amount Due : ', data['tax'])
 print('Valid Upto : ', data['validity'])
 ```
 
+```python
+import requests
+import json
+
+vehicle_registration = 'private'
+vehicle_type = 'smallvehicle'
+cubic_centimeter_capacity = '2500'
+valid_upto = '2075-03-15'
+
+url = 'http://127.0.0.1:8000'
+
+url = url + '/' + vehicle_type + '/' + vehicle_registration + '/' + cubic_centimeter_capacity + '/' + valid_upto
+
+data = requests.get(url)
+data = data.text
+
+data = json.loads(data)
+
+print('Tax Amount Due : ', data['tax'])
+print('Valid Upto : ', data['validity'])
+```
+
