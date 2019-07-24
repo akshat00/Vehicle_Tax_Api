@@ -17,7 +17,7 @@ def calculate(tax, valid_upto):
 
 	validity = valid_upto + timedelta(days = 365)
 	validity = validity.as_tuple()
-	validity = str(validity[0]) + '-' + str(validity[1]) + '-' + str(validity[2])
+	validity = "{}-{}-{}".format(validity[0], validity[1], validity[2])
 
 	number_of_days_left = current_date - valid_upto
 	number_of_days_left = number_of_days_left.days
@@ -74,7 +74,7 @@ def motorcycle_view(request, vehicle_registration_type, cubic_centimeter_capacit
 			year = '_2075'
 
 		else:
-			year = '_' + date[0]
+			year = '_{}'.format(date[0])
 		
 		tax = 0
 
@@ -114,7 +114,7 @@ def smallvehicle_view(request, vehicle_registration_type, cubic_centimeter_capac
 			year = '_2075'
 
 		else:
-			year = '_' + date[0]
+			year = '_{}'.format(date[0])
 
 		tax = 0
 
@@ -154,7 +154,7 @@ def largevehicle_view(request, vehicle_registration_type, vehicle_type, valid_up
 			year = '_2075'
 
 		else:
-			year = '_' + date[0]
+			year = '_{}'.format(date[0])
 
 		tax = 0
 
